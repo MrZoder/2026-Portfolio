@@ -1,10 +1,10 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const highlights = [
-    { label: 'Degree', value: 'B. Software Eng (AI)', icon: '🎓' },
-    { label: 'University', value: 'Torrens University', icon: '🏫' },
-    { label: 'Status', value: 'Final Trimester', icon: '📋' },
-    { label: 'Available', value: 'Immediately', icon: '✅' },
+    { label: 'Qualification', value: 'Bachelor of Software Engineering (AI)' },
+    { label: 'University', value: 'Torrens University' },
+    { label: 'Status', value: 'Graduated and qualified' },
+    { label: 'Availability', value: 'Immediate' },
 ];
 
 export default function About() {
@@ -12,77 +12,50 @@ export default function About() {
     const [cardsRef, cardsVisible] = useScrollReveal({ threshold: 0.1 });
 
     return (
-        <section id="about" className="relative py-28 sm:py-36">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-accent-teal/[0.03] blur-[150px] pointer-events-none" />
-
-            <div className="max-w-6xl mx-auto px-6 relative z-10">
-                {/* Section header */}
+        <section id="about" className="relative py-24 sm:py-32">
+            <div className="max-w-6xl mx-auto px-6">
                 <div ref={ref} className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-teal/10 border border-accent-teal/20 mb-6">
-                            <span className="text-sm font-medium text-accent-teal">Career Snapshot</span>
-                        </div>
+                    <div className="mb-12">
+                        <div className="section-kicker">Career Snapshot</div>
                         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4">
-                            About <span className="gradient-text">Zain Zahab</span>
+                            Qualified, product-minded, and already shipping.
                         </h2>
+                        <p className="text-text-secondary max-w-3xl text-lg leading-relaxed">
+                            Employers do not need another portfolio full of static clones. This one is built around the projects I have taken from problem to product.
+                        </p>
                     </div>
                 </div>
 
-                {/* Content grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
-                    {/* Bio text — takes 3 cols */}
-                    <div ref={ref} className={`lg:col-span-3 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                        <div className="glass-card p-8 sm:p-10">
-                            <p className="text-text-secondary leading-relaxed mb-5 text-[0.9375rem]">
-                                I'm a final-trimester <span className="text-text-primary font-medium">Software Engineering (AI)</span> student at Torrens University with one subject remaining before graduation in April 2026. I completed my <span className="text-text-primary font-medium">Diploma of Software Engineering at age 17</span>, and I've been building real products ever since.
+                <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-10 items-start">
+                    <div ref={ref} className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                        <div className="glass-card p-7 sm:p-9">
+                            <p className="text-text-secondary leading-relaxed mb-5 text-[0.97rem]">
+                                I have completed my <span className="text-text-primary font-medium">Bachelor of Software Engineering with a specialisation in Artificial Intelligence</span> at Torrens University, after completing my Diploma of Software Engineering at 17.
                             </p>
-                            <p className="text-text-secondary leading-relaxed mb-5 text-[0.9375rem]">
-                                Outside of coursework, I've shipped SaaS products, integrated AI models into production systems, and built tools that solve real-world problems. I think in products — not just features — and I care deeply about clean UI, solid architecture and user experience.
+                            <p className="text-text-secondary leading-relaxed mb-5 text-[0.97rem]">
+                                My strongest signal is ownership. I have built a trading analytics SaaS, a live iOS app, a shipping comparison concept grounded in real postal work, business automation that reduced manual paperwork, StudySprint, and an interactive early childhood learning module for sensitive safeguarding training.
                             </p>
-                            <p className="text-text-secondary leading-relaxed mb-8 text-[0.9375rem]">
-                                I'm looking for my first full-time role where I can contribute to a professional engineering team and grow rapidly in a real production environment.
+                            <p className="text-text-secondary leading-relaxed text-[0.97rem]">
+                                I am looking for a graduate or junior software engineering role where I can contribute to production systems, learn from experienced engineers, and become the person a team trusts with real delivery.
                             </p>
-
-                            {/* Positioning quote */}
-                            <div className="border-l-2 border-accent-teal/40 pl-5">
-                                <p className="text-text-primary font-medium italic text-[0.9375rem] leading-relaxed">
-                                    "I'm eager to contribute to a professional engineering team and grow rapidly in a real production environment."
-                                </p>
-                            </div>
                         </div>
                     </div>
 
-                    {/* Highlights cards — takes 2 cols */}
-                    <div ref={cardsRef} className={`lg:col-span-2 space-y-4 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                    <div ref={cardsRef} className={`space-y-3 transition-all duration-700 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         {highlights.map((item, i) => (
                             <div
                                 key={item.label}
-                                className="glass-card glass-card-hover p-5 flex items-center gap-4"
+                                className="glass-card p-5 flex items-center justify-between gap-5"
                                 style={{ transitionDelay: `${i * 80}ms` }}
                             >
-                                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-accent-teal/20 to-accent-sky/20 flex items-center justify-center text-lg flex-shrink-0">
-                                    {item.icon}
-                                </div>
-                                <div>
-                                    <div className="text-xs font-medium text-text-muted uppercase tracking-wider">{item.label}</div>
-                                    <div className="text-sm font-semibold text-text-primary mt-0.5">{item.value}</div>
-                                </div>
+                                <div className="text-xs font-medium text-text-muted uppercase tracking-wider">{item.label}</div>
+                                <div className="text-sm font-semibold text-text-primary text-right">{item.value}</div>
                             </div>
                         ))}
 
-                        {/* Relocation card */}
                         <div className="glass-card p-5 border-accent-emerald/20">
-                            <div className="flex items-center gap-3">
-                                <div className="w-11 h-11 rounded-xl bg-accent-emerald/10 flex items-center justify-center flex-shrink-0">
-                                    <svg className="w-5 h-5 text-accent-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <div className="text-xs font-medium text-text-muted uppercase tracking-wider">Relocation</div>
-                                    <div className="text-sm font-semibold text-accent-emerald mt-0.5">Open worldwide</div>
-                                </div>
-                            </div>
+                            <div className="text-xs font-medium text-text-muted uppercase tracking-wider mb-2">Relocation</div>
+                            <div className="text-sm font-semibold text-accent-emerald">Based in Australia, open worldwide for the right team</div>
                         </div>
                     </div>
                 </div>
