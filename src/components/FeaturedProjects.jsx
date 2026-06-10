@@ -17,6 +17,18 @@ const projects = [
         screenshot: '/screenshots/early-childhood/learning-hero.png',
     },
     {
+        id: 'bug-reporting-basics',
+        name: 'Bug Reporting Basics',
+        liveUrl: 'https://bugreportlearning.netlify.app/',
+        type: 'Interactive staff training module',
+        status: 'Live learning module',
+        outcome: 'Teaches staff how to report website and platform issues clearly so they can be fixed faster.',
+        description:
+            'A short e-learning module with clickable lesson cards, a live report-builder activity, scenario feedback, a mini quiz and a downloadable bug report checklist.',
+        proof: ['5-part report formula', 'Scenario-based answer feedback', 'Mini quiz and score', 'Downloadable checklist'],
+        tech: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    },
+    {
         id: 'studysprint',
         name: 'StudySprint',
         caseStudyUrl: '/case-study/studysprint',
@@ -207,7 +219,7 @@ export default function FeaturedProjects() {
                             Projects laid out like evidence, not decoration.
                         </h2>
                         <p className="text-text-secondary text-lg leading-relaxed">
-                            Each project shows the product problem, the shipped result, and the technical stack. The early childhood learning module is featured first because it is the newest live project.
+                            Each project shows the product problem, the shipped result, and the technical stack. Recent learning modules sit alongside full products to show both instructional design and software delivery.
                         </p>
                     </div>
                 </div>
