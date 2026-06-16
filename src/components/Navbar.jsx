@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
+import RollText from './RollText';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [hoveredLabel, setHoveredLabel] = useState(null);
 
     const navLinks = [
-        { id: 'about', label: 'About' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'experience', label: 'Experience' },
-        { id: 'skills', label: 'Skills' },
-        { id: 'value', label: 'Why Me' },
-        { id: 'contact', label: 'Contact' },
+        { id: 'about', label: 'About', hoverLabel: 'Profile' },
+        { id: 'projects', label: 'Projects', hoverLabel: 'Work' },
+        { id: 'experience', label: 'Experience', hoverLabel: 'Roles' },
+        { id: 'skills', label: 'Skills', hoverLabel: 'Stack' },
+        { id: 'value', label: 'Why Me', hoverLabel: 'Signal' },
+        { id: 'contact', label: 'Contact', hoverLabel: 'Email' },
     ];
 
     useEffect(() => {
@@ -46,15 +48,24 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => (
                         <button key={link.id} onClick={() => scrollTo(link.id)}
-                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${activeSection === link.id ? 'text-text-primary bg-white/[0.07]' : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'}`}>
-                            {link.label}
+                            onMouseEnter={() => setHoveredLabel(link.id)}
+                            onMouseLeave={() => setHoveredLabel(null)}
+                            onFocus={() => setHoveredLabel(link.id)}
+                            onBlur={() => setHoveredLabel(null)}
+                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer min-w-[5.8rem] flex justify-center ${activeSection === link.id ? 'text-text-primary bg-white/[0.07]' : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'}`}>
+                            <RollText text={hoveredLabel === link.id ? link.hoverLabel : link.label} direction={hoveredLabel === link.id ? 'up' : 'down'} />
                         </button>
                     ))}
                 </div>
 
                 <div className="hidden md:block">
-                    <button onClick={() => scrollTo('contact')} className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-text-primary text-dark-950 transition-all duration-300 hover:bg-white hover:-translate-y-0.5 cursor-pointer">
-                        Contact
+                    <button onClick={() => scrollTo('contact')}
+                        onMouseEnter={() => setHoveredLabel('nav-cta')}
+                        onMouseLeave={() => setHoveredLabel(null)}
+                        onFocus={() => setHoveredLabel('nav-cta')}
+                        onBlur={() => setHoveredLabel(null)}
+                        className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-text-primary text-dark-950 transition-all duration-300 hover:bg-white hover:-translate-y-0.5 cursor-pointer min-w-[6.25rem] flex justify-center">
+                        <RollText text={hoveredLabel === 'nav-cta' ? 'Email Me' : 'Contact'} direction={hoveredLabel === 'nav-cta' ? 'up' : 'down'} />
                     </button>
                 </div>
 
@@ -72,7 +83,7 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <button key={link.id} onClick={() => scrollTo(link.id)}
                             className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${activeSection === link.id ? 'text-text-primary bg-white/[0.07]' : 'text-text-secondary hover:text-text-primary'}`}>
-                            {link.label}
+                            <RollText text={activeSection === link.id ? link.hoverLabel : link.label} direction={activeSection === link.id ? 'up' : 'down'} />
                         </button>
                     ))}
                 </div>

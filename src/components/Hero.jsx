@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import RollText from './RollText';
+
 const proofPoints = [
     'Bachelor of Software Engineering (AI)',
     'Live SaaS, mobile, learning and automation products',
@@ -11,6 +14,8 @@ const metrics = [
 ];
 
 export default function Hero() {
+    const [hoveredAction, setHoveredAction] = useState(null);
+
     const scrollTo = (id) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -47,15 +52,27 @@ export default function Hero() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-[fade-in-up_0.8s_ease_0.28s_both]">
-                            <button onClick={() => scrollTo('projects')} className="btn-primary group">
+                            <button onClick={() => scrollTo('projects')}
+                                onMouseEnter={() => setHoveredAction('projects')}
+                                onMouseLeave={() => setHoveredAction(null)}
+                                onFocus={() => setHoveredAction('projects')}
+                                onBlur={() => setHoveredAction(null)}
+                                className="btn-primary group min-w-[11.75rem] justify-center">
                                 <span className="flex items-center gap-2">
-                                    Review the Work
+                                    <RollText text={hoveredAction === 'projects' ? 'See the Proof' : 'Review the Work'} direction={hoveredAction === 'projects' ? 'up' : 'down'} />
                                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </span>
                             </button>
-                            <button onClick={() => scrollTo('contact')} className="btn-secondary">Start a Conversation</button>
+                            <button onClick={() => scrollTo('contact')}
+                                onMouseEnter={() => setHoveredAction('contact')}
+                                onMouseLeave={() => setHoveredAction(null)}
+                                onFocus={() => setHoveredAction('contact')}
+                                onBlur={() => setHoveredAction(null)}
+                                className="btn-secondary min-w-[13.25rem] justify-center">
+                                <RollText text={hoveredAction === 'contact' ? 'Email Zain' : 'Start a Conversation'} direction={hoveredAction === 'contact' ? 'up' : 'down'} />
+                            </button>
                         </div>
                     </div>
 
@@ -66,7 +83,13 @@ export default function Hero() {
                                     <div className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">Current Focus</div>
                                     <div className="font-display text-2xl font-bold text-text-primary">Graduate engineer ready for production teams</div>
                                 </div>
-                                <div className="text-xs text-accent-emerald font-semibold border border-accent-emerald/25 px-3 py-1.5 rounded-md whitespace-nowrap">Available</div>
+                                <div
+                                    onMouseEnter={() => setHoveredAction('available')}
+                                    onMouseLeave={() => setHoveredAction(null)}
+                                    className="text-xs text-accent-emerald font-semibold border border-accent-emerald/25 px-3 py-1.5 rounded-md whitespace-nowrap min-w-[5.4rem] flex justify-center"
+                                >
+                                    <RollText text={hoveredAction === 'available' ? 'Ready now' : 'Available'} direction={hoveredAction === 'available' ? 'up' : 'down'} />
+                                </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 py-6 border-b border-white/[0.06]">

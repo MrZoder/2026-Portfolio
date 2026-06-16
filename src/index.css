@@ -168,6 +168,18 @@ body {
   line-height: 1.55;
 }
 
+.roll-label {
+  line-height: inherit;
+  vertical-align: bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .char-face {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;

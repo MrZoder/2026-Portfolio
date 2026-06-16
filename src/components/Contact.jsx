@@ -1,18 +1,23 @@
+import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import RollText from './RollText';
 
 const contactLinks = [
     {
         label: 'Email',
+        hoverLabel: 'Send',
         value: 'zainzahab4@gmail.com',
         href: 'mailto:zainzahab4@gmail.com',
     },
     {
         label: 'Phone',
+        hoverLabel: 'Call',
         value: '+61 481 401 554',
         href: 'tel:+61481401554',
     },
     {
         label: 'GitHub',
+        hoverLabel: 'Open',
         value: 'MrZoder',
         href: 'https://github.com/MrZoder',
     },
@@ -20,6 +25,7 @@ const contactLinks = [
 
 export default function Contact() {
     const [ref, isVisible] = useScrollReveal();
+    const [hoveredContact, setHoveredContact] = useState(null);
 
     return (
         <section id="contact" className="relative py-24 sm:py-32">
@@ -35,16 +41,29 @@ export default function Contact() {
                                 <p className="text-text-secondary text-lg max-w-2xl mb-7 leading-relaxed">
                                     I am available for graduate and junior software engineering roles. I am especially interested in teams building web products, AI-assisted workflows, developer tools, operations software or SaaS platforms.
                                 </p>
-                                <a href="mailto:zainzahab4@gmail.com" className="btn-primary text-base !py-3 !px-6 inline-flex">
-                                    <span>Email Zain</span>
+                                <a href="mailto:zainzahab4@gmail.com"
+                                    onMouseEnter={() => setHoveredContact('main')}
+                                    onMouseLeave={() => setHoveredContact(null)}
+                                    onFocus={() => setHoveredContact('main')}
+                                    onBlur={() => setHoveredContact(null)}
+                                    className="btn-primary text-base !py-3 !px-6 inline-flex min-w-[8.4rem] justify-center">
+                                    <span>
+                                        <RollText text={hoveredContact === 'main' ? 'Let\'s Talk' : 'Email Zain'} direction={hoveredContact === 'main' ? 'up' : 'down'} />
+                                    </span>
                                 </a>
                             </div>
 
                             <div className="space-y-3">
                                 {contactLinks.map((link) => (
                                     <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                        onMouseEnter={() => setHoveredContact(link.label)}
+                                        onMouseLeave={() => setHoveredContact(null)}
+                                        onFocus={() => setHoveredContact(link.label)}
+                                        onBlur={() => setHoveredContact(null)}
                                         className="block bg-dark-900/70 border border-white/[0.06] rounded-lg p-5 hover:border-white/[0.16] transition-colors">
-                                        <div className="text-xs text-text-muted uppercase tracking-wider mb-1">{link.label}</div>
+                                        <div className="text-xs text-text-muted uppercase tracking-wider mb-1 min-w-[3.5rem]">
+                                            <RollText text={hoveredContact === link.label ? link.hoverLabel : link.label} direction={hoveredContact === link.label ? 'up' : 'down'} />
+                                        </div>
                                         <div className="text-sm font-medium text-text-primary break-all">{link.value}</div>
                                     </a>
                                 ))}
