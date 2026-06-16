@@ -118,13 +118,13 @@ function ProjectActions({ project }) {
             {project.liveUrl && (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
                     className={`${project.caseStudyUrl ? 'btn-secondary' : 'btn-primary'} text-sm !py-2.5 !px-4 min-w-[6.3rem] justify-center`}>
-                    Live Link
+                    <span>Live Link</span>
                 </a>
             )}
             {project.repoUrl && (
                 <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"
                     className="btn-secondary text-sm !py-2.5 !px-4 min-w-[5.9rem] justify-center">
-                    GitHub
+                    <span>GitHub</span>
                 </a>
             )}
         </div>
