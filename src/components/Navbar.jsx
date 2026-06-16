@@ -53,7 +53,11 @@ export default function Navbar() {
                             onFocus={() => setHoveredLabel(link.id)}
                             onBlur={() => setHoveredLabel(null)}
                             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer min-w-[5.8rem] flex justify-center ${activeSection === link.id ? 'text-text-primary bg-white/[0.07]' : 'text-text-secondary hover:text-text-primary hover:bg-white/[0.04]'}`}>
-                            <RollText text={hoveredLabel === link.id ? link.hoverLabel : link.label} direction={hoveredLabel === link.id ? 'up' : 'down'} />
+                            <RollText
+                                text={hoveredLabel === link.id ? link.hoverLabel : link.label}
+                                reserveTexts={[link.label, link.hoverLabel]}
+                                direction={hoveredLabel === link.id ? 'up' : 'down'}
+                            />
                         </button>
                     ))}
                 </div>
@@ -65,7 +69,11 @@ export default function Navbar() {
                         onFocus={() => setHoveredLabel('nav-cta')}
                         onBlur={() => setHoveredLabel(null)}
                         className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-text-primary text-dark-950 transition-all duration-300 hover:bg-white hover:-translate-y-0.5 cursor-pointer min-w-[6.25rem] flex justify-center">
-                        <RollText text={hoveredLabel === 'nav-cta' ? 'Email Me' : 'Contact'} direction={hoveredLabel === 'nav-cta' ? 'up' : 'down'} />
+                        <RollText
+                            text={hoveredLabel === 'nav-cta' ? 'Email Me' : 'Contact'}
+                            reserveTexts={['Contact', 'Email Me']}
+                            direction={hoveredLabel === 'nav-cta' ? 'up' : 'down'}
+                        />
                     </button>
                 </div>
 
@@ -83,7 +91,11 @@ export default function Navbar() {
                     {navLinks.map((link) => (
                         <button key={link.id} onClick={() => scrollTo(link.id)}
                             className={`block w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${activeSection === link.id ? 'text-text-primary bg-white/[0.07]' : 'text-text-secondary hover:text-text-primary'}`}>
-                            <RollText text={activeSection === link.id ? link.hoverLabel : link.label} direction={activeSection === link.id ? 'up' : 'down'} />
+                            <RollText
+                                text={activeSection === link.id ? link.hoverLabel : link.label}
+                                reserveTexts={[link.label, link.hoverLabel]}
+                                direction={activeSection === link.id ? 'up' : 'down'}
+                            />
                         </button>
                     ))}
                 </div>

@@ -119,7 +119,11 @@ function ProjectActions({ project }) {
                     onBlur={() => setHoveredAction(null)}
                     className="btn-primary text-sm !py-2.5 !px-4 min-w-[6.7rem] justify-center">
                     <span>
-                        <RollText text={hoveredAction === 'case' ? 'Read Story' : 'Case Study'} direction={hoveredAction === 'case' ? 'up' : 'down'} />
+                        <RollText
+                            text={hoveredAction === 'case' ? 'Read Story' : 'Case Study'}
+                            reserveTexts={['Case Study', 'Read Story']}
+                            direction={hoveredAction === 'case' ? 'up' : 'down'}
+                        />
                     </span>
                 </Link>
             )}
@@ -130,7 +134,11 @@ function ProjectActions({ project }) {
                     onFocus={() => setHoveredAction('live')}
                     onBlur={() => setHoveredAction(null)}
                     className={`${project.caseStudyUrl ? 'btn-secondary' : 'btn-primary'} text-sm !py-2.5 !px-4 min-w-[6.3rem] justify-center`}>
-                    <RollText text={hoveredAction === 'live' ? 'Open Live' : 'Live Link'} direction={hoveredAction === 'live' ? 'up' : 'down'} />
+                    <RollText
+                        text={hoveredAction === 'live' ? 'Open Live' : 'Live Link'}
+                        reserveTexts={['Live Link', 'Open Live']}
+                        direction={hoveredAction === 'live' ? 'up' : 'down'}
+                    />
                 </a>
             )}
             {project.repoUrl && (
@@ -140,7 +148,11 @@ function ProjectActions({ project }) {
                     onFocus={() => setHoveredAction('repo')}
                     onBlur={() => setHoveredAction(null)}
                     className="btn-secondary text-sm !py-2.5 !px-4 min-w-[5.9rem] justify-center">
-                    <RollText text={hoveredAction === 'repo' ? 'View Code' : 'GitHub'} direction={hoveredAction === 'repo' ? 'up' : 'down'} />
+                    <RollText
+                        text={hoveredAction === 'repo' ? 'View Code' : 'GitHub'}
+                        reserveTexts={['GitHub', 'View Code']}
+                        direction={hoveredAction === 'repo' ? 'up' : 'down'}
+                    />
                 </a>
             )}
         </div>
@@ -156,7 +168,11 @@ function ProjectStatus({ project }) {
             onMouseLeave={() => setHovered(false)}
             className="status-pill min-w-[9.6rem] justify-center"
         >
-            <RollText text={hovered ? project.statusHover : project.status} direction={hovered ? 'up' : 'down'} />
+            <RollText
+                text={hovered ? project.statusHover : project.status}
+                reserveTexts={[project.status, project.statusHover]}
+                direction={hovered ? 'up' : 'down'}
+            />
         </span>
     );
 }

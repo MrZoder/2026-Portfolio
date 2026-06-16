@@ -168,9 +168,30 @@ body {
   line-height: 1.55;
 }
 
-.roll-label {
+.roll-label-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
   line-height: inherit;
-  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.roll-label-sizer {
+  visibility: hidden;
+  pointer-events: none;
+  white-space: pre;
+}
+
+.roll-label.slot-text {
+  position: absolute !important;
+  inset: 0;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {

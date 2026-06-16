@@ -48,7 +48,11 @@ export default function Contact() {
                                     onBlur={() => setHoveredContact(null)}
                                     className="btn-primary text-base !py-3 !px-6 inline-flex min-w-[8.4rem] justify-center">
                                     <span>
-                                        <RollText text={hoveredContact === 'main' ? 'Let\'s Talk' : 'Email Zain'} direction={hoveredContact === 'main' ? 'up' : 'down'} />
+                                        <RollText
+                                            text={hoveredContact === 'main' ? 'Let\'s Talk' : 'Email Zain'}
+                                            reserveTexts={['Email Zain', 'Let\'s Talk']}
+                                            direction={hoveredContact === 'main' ? 'up' : 'down'}
+                                        />
                                     </span>
                                 </a>
                             </div>
@@ -62,7 +66,11 @@ export default function Contact() {
                                         onBlur={() => setHoveredContact(null)}
                                         className="block bg-dark-900/70 border border-white/[0.06] rounded-lg p-5 hover:border-white/[0.16] transition-colors">
                                         <div className="text-xs text-text-muted uppercase tracking-wider mb-1 min-w-[3.5rem]">
-                                            <RollText text={hoveredContact === link.label ? link.hoverLabel : link.label} direction={hoveredContact === link.label ? 'up' : 'down'} />
+                                            <RollText
+                                                text={hoveredContact === link.label ? link.hoverLabel : link.label}
+                                                reserveTexts={[link.label, link.hoverLabel]}
+                                                direction={hoveredContact === link.label ? 'up' : 'down'}
+                                            />
                                         </div>
                                         <div className="text-sm font-medium text-text-primary break-all">{link.value}</div>
                                     </a>

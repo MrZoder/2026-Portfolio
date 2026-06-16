@@ -59,7 +59,11 @@ export default function Hero() {
                                 onBlur={() => setHoveredAction(null)}
                                 className="btn-primary group min-w-[11.75rem] justify-center">
                                 <span className="flex items-center gap-2">
-                                    <RollText text={hoveredAction === 'projects' ? 'See the Proof' : 'Review the Work'} direction={hoveredAction === 'projects' ? 'up' : 'down'} />
+                                    <RollText
+                                        text={hoveredAction === 'projects' ? 'See the Proof' : 'Review the Work'}
+                                        reserveTexts={['Review the Work', 'See the Proof']}
+                                        direction={hoveredAction === 'projects' ? 'up' : 'down'}
+                                    />
                                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
@@ -71,7 +75,11 @@ export default function Hero() {
                                 onFocus={() => setHoveredAction('contact')}
                                 onBlur={() => setHoveredAction(null)}
                                 className="btn-secondary min-w-[13.25rem] justify-center">
-                                <RollText text={hoveredAction === 'contact' ? 'Email Zain' : 'Start a Conversation'} direction={hoveredAction === 'contact' ? 'up' : 'down'} />
+                                <RollText
+                                    text={hoveredAction === 'contact' ? 'Email Zain' : 'Start a Conversation'}
+                                    reserveTexts={['Start a Conversation', 'Email Zain']}
+                                    direction={hoveredAction === 'contact' ? 'up' : 'down'}
+                                />
                             </button>
                         </div>
                     </div>
@@ -88,7 +96,11 @@ export default function Hero() {
                                     onMouseLeave={() => setHoveredAction(null)}
                                     className="text-xs text-accent-emerald font-semibold border border-accent-emerald/25 px-3 py-1.5 rounded-md whitespace-nowrap min-w-[5.4rem] flex justify-center"
                                 >
-                                    <RollText text={hoveredAction === 'available' ? 'Ready now' : 'Available'} direction={hoveredAction === 'available' ? 'up' : 'down'} />
+                                    <RollText
+                                        text={hoveredAction === 'available' ? 'Ready now' : 'Available'}
+                                        reserveTexts={['Available', 'Ready now']}
+                                        direction={hoveredAction === 'available' ? 'up' : 'down'}
+                                    />
                                 </div>
                             </div>
 
