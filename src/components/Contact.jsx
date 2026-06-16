@@ -42,18 +42,8 @@ export default function Contact() {
                                     I am available for graduate and junior software engineering roles. I am especially interested in teams building web products, AI-assisted workflows, developer tools, operations software or SaaS platforms.
                                 </p>
                                 <a href="mailto:zainzahab4@gmail.com"
-                                    onMouseEnter={() => setHoveredContact('main')}
-                                    onMouseLeave={() => setHoveredContact(null)}
-                                    onFocus={() => setHoveredContact('main')}
-                                    onBlur={() => setHoveredContact(null)}
                                     className="btn-primary text-base !py-3 !px-6 inline-flex min-w-[8.4rem] justify-center">
-                                    <span>
-                                        <RollText
-                                            text={hoveredContact === 'main' ? 'Let\'s Talk' : 'Email Zain'}
-                                            reserveTexts={['Email Zain', 'Let\'s Talk']}
-                                            direction={hoveredContact === 'main' ? 'up' : 'down'}
-                                        />
-                                    </span>
+                                    <span>Email Zain</span>
                                 </a>
                             </div>
 

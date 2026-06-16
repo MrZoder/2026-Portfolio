@@ -107,52 +107,24 @@ const projects = [
 ];
 
 function ProjectActions({ project }) {
-    const [hoveredAction, setHoveredAction] = useState(null);
-
     return (
         <div className="flex flex-wrap gap-3">
             {project.caseStudyUrl && (
                 <Link to={project.caseStudyUrl}
-                    onMouseEnter={() => setHoveredAction('case')}
-                    onMouseLeave={() => setHoveredAction(null)}
-                    onFocus={() => setHoveredAction('case')}
-                    onBlur={() => setHoveredAction(null)}
                     className="btn-primary text-sm !py-2.5 !px-4 min-w-[6.7rem] justify-center">
-                    <span>
-                        <RollText
-                            text={hoveredAction === 'case' ? 'Read Story' : 'Case Study'}
-                            reserveTexts={['Case Study', 'Read Story']}
-                            direction={hoveredAction === 'case' ? 'up' : 'down'}
-                        />
-                    </span>
+                    <span>Case Study</span>
                 </Link>
             )}
             {project.liveUrl && (
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer"
-                    onMouseEnter={() => setHoveredAction('live')}
-                    onMouseLeave={() => setHoveredAction(null)}
-                    onFocus={() => setHoveredAction('live')}
-                    onBlur={() => setHoveredAction(null)}
                     className={`${project.caseStudyUrl ? 'btn-secondary' : 'btn-primary'} text-sm !py-2.5 !px-4 min-w-[6.3rem] justify-center`}>
-                    <RollText
-                        text={hoveredAction === 'live' ? 'Open Live' : 'Live Link'}
-                        reserveTexts={['Live Link', 'Open Live']}
-                        direction={hoveredAction === 'live' ? 'up' : 'down'}
-                    />
+                    Live Link
                 </a>
             )}
             {project.repoUrl && (
                 <a href={project.repoUrl} target="_blank" rel="noopener noreferrer"
-                    onMouseEnter={() => setHoveredAction('repo')}
-                    onMouseLeave={() => setHoveredAction(null)}
-                    onFocus={() => setHoveredAction('repo')}
-                    onBlur={() => setHoveredAction(null)}
                     className="btn-secondary text-sm !py-2.5 !px-4 min-w-[5.9rem] justify-center">
-                    <RollText
-                        text={hoveredAction === 'repo' ? 'View Code' : 'GitHub'}
-                        reserveTexts={['GitHub', 'View Code']}
-                        direction={hoveredAction === 'repo' ? 'up' : 'down'}
-                    />
+                    GitHub
                 </a>
             )}
         </div>

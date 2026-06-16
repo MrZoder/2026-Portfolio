@@ -53,33 +53,17 @@ export default function Hero() {
 
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 animate-[fade-in-up_0.8s_ease_0.28s_both]">
                             <button onClick={() => scrollTo('projects')}
-                                onMouseEnter={() => setHoveredAction('projects')}
-                                onMouseLeave={() => setHoveredAction(null)}
-                                onFocus={() => setHoveredAction('projects')}
-                                onBlur={() => setHoveredAction(null)}
                                 className="btn-primary group min-w-[11.75rem] justify-center">
                                 <span className="flex items-center gap-2">
-                                    <RollText
-                                        text={hoveredAction === 'projects' ? 'See the Proof' : 'Review the Work'}
-                                        reserveTexts={['Review the Work', 'See the Proof']}
-                                        direction={hoveredAction === 'projects' ? 'up' : 'down'}
-                                    />
+                                    Review the Work
                                     <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                     </svg>
                                 </span>
                             </button>
                             <button onClick={() => scrollTo('contact')}
-                                onMouseEnter={() => setHoveredAction('contact')}
-                                onMouseLeave={() => setHoveredAction(null)}
-                                onFocus={() => setHoveredAction('contact')}
-                                onBlur={() => setHoveredAction(null)}
                                 className="btn-secondary min-w-[13.25rem] justify-center">
-                                <RollText
-                                    text={hoveredAction === 'contact' ? 'Email Zain' : 'Start a Conversation'}
-                                    reserveTexts={['Start a Conversation', 'Email Zain']}
-                                    direction={hoveredAction === 'contact' ? 'up' : 'down'}
-                                />
+                                Start a Conversation
                             </button>
                         </div>
                     </div>
