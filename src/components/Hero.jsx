@@ -5,7 +5,7 @@ const proofPoints = [
 ];
 
 const metrics = [
-    { value: '6', label: 'shipped product builds' },
+    { value: '7', label: 'shipped product builds' },
     { value: '1', label: 'App Store release' },
     { value: '50%', label: 'paperwork reduction in automation work' },
 ];
